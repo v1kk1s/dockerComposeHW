@@ -7,13 +7,12 @@ services:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - 3000:80
-    container_name: 'winnlab'
+      - 3000
+    container_name: 'server'
   nginx:
     container_name: 'nginx'
     image: 'nginx'
     ports:
       - 3033:80
     volumes:
-      - ./src/volumes/conf.d:/etc/nginx/server/conf.d
-      - ./src/volumes/index.html:/usr/share/nginx/html/index.html
+      - ./src/volumes/conf.d:/etc/nginx/conf.d/default.conf

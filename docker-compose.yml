@@ -1,0 +1,19 @@
+version: '2.1'
+services:
+  server:
+    build: .
+    command: npm run start:dev
+    volumes:
+      - .:/usr/app
+      - /usr/app/node_modules
+    ports:
+      - 3000:80
+    container_name: 'winnlab'
+  nginx:
+    container_name: 'nginx'
+    image: 'nginx'
+    ports:
+      - 3033:80
+    volumes:
+      - ./src/volumes/conf.d:/etc/nginx/server/conf.d
+      - ./src/volumes/index.html:/usr/share/nginx/html/index.html

@@ -9,8 +9,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-node src/app.js",
-    "start:dev": "nodemon --watch ./src -x \"npm run start\""
+    "startServer": "babel-node src/server.js",
+    "startApp": "babel-node src/app.js",
+    "start:server": "nodemon --watch ./src -x \"npm run startServer\"",
+    "start:app": "nodemon --watch ./src -x \"npm run startApp\""
   },
   "author": "",
   "license": "ISC",

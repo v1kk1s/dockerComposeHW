@@ -15,22 +15,16 @@ app.get('/', (req, res) => {
 
 app.get('/get-from-object/:name', (req, res) => {
   request(`http://app:3001/get/?name=${req.params.name}`, (err, resp, body) => {
+    console.log('receive name: ', body);
     res.send(body);
   });
 });
 
 app.post('/set-in-object', (req, res) => {
+  console.log('Set name: ', req.body);
   res.send(req.body);
-  request({
-    method: 'POST',
-    uri: 'http://app:3001/set',
-    multipart: [
-      {
-        'content-type': 'application/json',
-        body: JSON.stringify(req.body),
-      },
-    ],
-  });
+
+  request.post('http://app:3001/set').form(req.body);
 });
 
 app.listen(port, () => {

@@ -21,7 +21,7 @@ app.get('/get', (req, res) => {
   const { name } = req.query;
   res.send(band[name]);
 
-  console.log('send name: ', band[name], req.query);
+  console.log('send name: ', band[name]);
 });
 
 app.post('/set', (req, res) => {
@@ -30,7 +30,7 @@ app.post('/set', (req, res) => {
   keys.map(key => (band[key] = req.body[key]));
   res.send(band);
 
-  console.log('Request: ', req.body);
+  console.log('Get name to set: ', req.body);
 });
 
 app.listen(port, () => {

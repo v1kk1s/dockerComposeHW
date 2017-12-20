@@ -14,8 +14,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/get-from-object/:name', (req, res) => {
-  res.send(req.params.name);
-  request.get(`http://app:3001/get/?name=${req.params.name}`);
+  request(`http://app:3001/get/?name=${req.params.name}`, (err, resp, body) => {
+    res.send(body);
+  });
 });
 
 app.post('/set-in-object', (req, res) => {

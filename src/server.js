@@ -9,8 +9,8 @@ const port = process.env.PORT || 3000;
 // app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
-  // res.send('hello there! how it`s going?');
-  res.sendFile(path.join(__dirname + '/volumes/server.html'));
+  res.send('hello there! how it`s going?');
+  // res.sendFile(path.join(__dirname + '/volumes/server.html'));
 });
 
 app.listen(port, () => {

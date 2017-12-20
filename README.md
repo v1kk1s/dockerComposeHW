@@ -13,6 +13,8 @@ hw
 
 add body-parser
 
+npm request
+
 ****
 у новосозданного сервера должно быть два рута
 body_parser

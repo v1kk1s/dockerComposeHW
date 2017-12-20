@@ -2,19 +2,19 @@ version: '2.1'
 services:
   server:
     build: .
-    command: npm run start:dev
+    command: npm run start:server
     volumes:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - 3000
+      - 3000:3000
     container_name: 'server'
   app:
     build: .
-    command: npm run start:dev
+    command: npm run start:app
     volumes:
       - .:/usr/app
       - /usr/app/node_modules
     ports:
-      - 3000
-    container_name: 'server'
+      - 3001:3001
+    container_name: 'app'
